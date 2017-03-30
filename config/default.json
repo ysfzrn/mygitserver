@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/mygitserver",
+  "public": "../public/",
+  "uploads": "../src/uploads",
+  "auth": {
+    "token": {
+      "secret": "oULQLoT9T03w+rqXg/gXdvhbF8J3SiBRC+R6vA172ZTHcuj6aoS6IKvDkd1bUUdXSBmf95yPevItZ3GfAdgbjA=="
+    },
+    "local": {}
+  }
+}
