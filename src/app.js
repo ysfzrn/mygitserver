@@ -13,16 +13,15 @@ const bodyParser = require("body-parser");
 const socketio = require("feathers-socketio");
 const middleware = require("./middleware");
 const services = require("./services");
-const handler = require('feathers-errors/handler');
+const handler = require("feathers-errors/handler");
 
+const blobService = require("feathers-blob");
+const fs = require("fs-blob-store");
+const blobStorage = fs(__dirname + "/uploads");
 
-const blobService = require('feathers-blob');
-const fs = require('fs-blob-store');
-const blobStorage = fs(__dirname + '/uploads');
-
-const multer = require('multer');
+const multer = require("multer");
 const multipartMiddleware = multer();
-const dauria = require('dauria');
+const dauria = require("dauria");
 
 const app = feathers();
 
@@ -40,7 +39,11 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .configure(hooks())
   .configure(rest())
-  .configure(socketio())
+  .configure(
+    socketio({
+      wsEngine: "uws"
+    })
+  )
   .configure(services)
   .configure(middleware)
   .use(

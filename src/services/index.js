@@ -1,4 +1,5 @@
 'use strict';
+const activity = require('./activity');
 const comment = require('./comment');
 const task = require('./task');
 const postitem = require('./postitem');
@@ -18,4 +19,5 @@ module.exports = function() {
   app.configure(postitem);
   app.configure(task);
   app.configure(comment);
+  app.configure(activity);
 };
